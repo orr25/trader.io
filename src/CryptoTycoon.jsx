@@ -297,3 +297,16 @@ export default function CryptoTycoon() {
                   <div className="text-right">
                     <div className="text-sm opacity-80">@ ${market[sym]?.price.toFixed(2)}</div>
                     <div className="font
+                    <div className="font-mono">
+                      ${(units * (market[sym]?.price || 0)).toFixed(2)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      </main>
+    </div>
+  );
+}
