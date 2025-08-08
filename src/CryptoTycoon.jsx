@@ -47,6 +47,7 @@ function PlayerAvatar({ name = "Guest", onClick }) {
       className="relative w-[18rem] h-[18rem] mx-auto select-none cursor-pointer group"
       title="Click to continue"
     >
+      {/* SVG avatar art */}
       <svg viewBox="0 0 220 220" className="w-full h-full drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
         <defs>
           <radialGradient id="glow" cx="60%" cy="42%" r="60%">
@@ -175,6 +176,7 @@ export default function CryptoTycoon() {
     setPlayer({ id: Math.random().toString(36).slice(2, 9), cash: STARTING_CASH, holdings: {}, history: [] });
   }
 
+  // Start screen
   if (screen === "start") {
     return (
       <div className="flex items-center justify-center min-h-screen bg-slate-950 text-slate-100 p-4">
@@ -201,6 +203,7 @@ export default function CryptoTycoon() {
     );
   }
 
+  // Avatar screen
   if (screen === "avatar") {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-100 p-4">
@@ -210,6 +213,7 @@ export default function CryptoTycoon() {
     );
   }
 
+  // Market screen
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-6">
       <header className="flex items-center justify-between">
@@ -221,6 +225,7 @@ export default function CryptoTycoon() {
       </header>
 
       <main className="grid md:grid-cols-3 gap-4 mt-4">
+        {/* Market & Charts */}
         <section className="md:col-span-1 bg-slate-900/50 rounded-2xl p-3 shadow-lg">
           <h2 className="text-lg font-semibold mb-2">Market</h2>
           <div className="space-y-3">
@@ -260,6 +265,7 @@ export default function CryptoTycoon() {
           </div>
         </section>
 
+        {/* Avatar + Stats */}
         <section className="md:col-span-1 bg-slate-900/50 rounded-2xl p-3 flex flex-col items-center justify-between shadow-lg">
           <div className="text-lg font-semibold">Your Station</div>
           <PlayerAvatar name={name} onClick={() => {}} />
@@ -275,6 +281,7 @@ export default function CryptoTycoon() {
           </div>
         </section>
 
+        {/* Portfolio */}
         <section className="md:col-span-1 bg-slate-900/50 rounded-2xl p-3 shadow-lg">
           <h2 className="text-lg font-semibold mb-2">Portfolio</h2>
           {Object.keys(player.holdings).length === 0 ? (
@@ -289,8 +296,4 @@ export default function CryptoTycoon() {
                   </div>
                   <div className="text-right">
                     <div className="text-sm opacity-80">@ ${market[sym]?.price.toFixed(2)}</div>
-                    <div className="font-mono">${(units * (market[sym]?.price || 0)).toFixed(2)}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                    <div className="font
