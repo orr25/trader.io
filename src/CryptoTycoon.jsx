@@ -310,3 +310,4 @@ export default function CryptoTycoon() {
     </div>
   );
 }
+export default CryptoTycoon;
